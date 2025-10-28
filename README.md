@@ -12,12 +12,14 @@ Complete all 18 holes with the lowest total score! Each hole presents unique cha
 
 ## Controls
 
-- **Left/Right Arrow Keys**: Move the ball horizontally
-- **Space** or **Up Arrow**: Jump (only when grounded on a platform)
+- **← → Arrow Keys**: Move the ball horizontally
+- **Space** or **↑ Up Arrow**: Jump (only when grounded on a platform)
 - **Enter**: Proceed to next hole (after completing current hole)
-- **R**: Restart the entire course (after finishing 18 holes)
 
-**Note**: Each jump counts as one stroke - horizontal movement does not!
+**Important**: 
+- Each jump = 1 stroke (movement doesn't count!)
+- Plan your jumps carefully to minimize your score
+- To play again after completing 18 holes, refresh the page
 
 ## Game Mechanics
 
@@ -45,17 +47,34 @@ Your score for each hole depends on how many jumps (strokes) you take relative t
 
 **Sand Bunkers** (beige circles) are strategically placed around putting greens. Touching a bunker adds **+1 penalty stroke** automatically and displays a warning message.
 
-**Water Hazards** (blue rectangles) appear on select holes (notably Hole 11). Water hazards enforce the **stroke and distance** penalty:
+**Water Hazards** (blue rectangles) appear on select holes throughout the course (Holes 2, 3, 11, 13, 14). Water hazards enforce the **stroke and distance** penalty:
 - **+1 penalty stroke** is added
 - Ball returns to the **last platform** you landed on
 - More punishing than bunkers - plan your route carefully!
+- These holes require strategic thinking and precise jumps
 
 ### HUD & Tracking
-The game displays comprehensive scoring information:
-- **Top Left**: Current hole number (Hole X/18)
-- **Top Right**: Hole strokes and par for current hole
-- **Top Right**: Total strokes vs total par (X/72)
-- **Live Updates**: Stroke counter updates with each jump
+The game displays comprehensive scoring information with clear visual hierarchy:
+
+**Top Left - All Game Information:**
+- **HOLE X** (Large, Gold) - Current hole number
+- **Par X • Strokes: X** (Medium, White) - Current hole stats
+- **TOTAL STROKES** (Small label, Gray)
+- **Par 72 • X • +/-X** (Medium, White) - Course par, completed strokes, differential
+
+**Bottom Right - Instructions:**
+- Controls and tips displayed in compact single line
+- Right-aligned to stay out of the way during gameplay
+
+**Live Updates**: Current hole strokes update with each jump
+
+**Total Scoring Display:**
+- Shows strokes from **completed holes only** (current hole not counted)
+- This number is **frozen** while you play each hole - it won't change with each jump
+- Differential compares your completed strokes to the par of completed holes
+- **Example on Hole 1:** `Par 72 • 0 • E` (no holes completed yet - stays at 0 throughout hole 1)
+- **Example on Hole 3 after shooting 4 and 5 on holes 1 & 2:** `Par 72 • 9 • +2` (stays at 9 throughout hole 3)
+- **E** = Even par, **+2** = Two over par, **-2** = Two under par
 
 ### Course Elements (Per Hole)
 - **Starting Tee** (orange) - Where the ball begins each hole
@@ -87,7 +106,7 @@ After completing all 18 holes, you'll see:
 - **Course completion message** with your final standing vs par
 - **Total strokes** compared to the course par of 72
 - **Compact scorecard** showing your performance on each hole (displayed as +/- vs par)
-- Option to **restart the course** by pressing **R**
+- To play again, simply **refresh the page**
 
 ## Strategy Tips
 
@@ -95,38 +114,45 @@ After completing all 18 holes, you'll see:
 - **Minimize jumps**: Each stroke counts - find the most efficient path
 - **Avoid bunkers**: Sand hazards add penalty strokes and can ruin a good round
 - **AVOID WATER**: Water hazards send you back to your last platform - extremely costly!
-- **Track your platforms**: On water hazard holes, know where your safe landing zones are
+- **Track your platforms**: On water hazard holes (2, 3, 11, 13, 14), know where your safe landing zones are
+- **Scout the hole**: Take a moment to identify hazards before your first jump
 - **Free movement**: Move left/right without penalty while airborne
 - **Par 3s are opportunities**: Shorter holes are chances for birdies
 - **Par 5s require patience**: Don't rush the longer holes - consistency beats risk
-- **Hole 11 warning**: Features water hazards - take your time and plan carefully!
+- **Mind the middle holes**: Holes 11-14 feature multiple water hazards - extra caution needed!
 - **Track your total**: Keep an eye on your cumulative score vs par throughout the round
 - **Falls cost strokes**: Be careful near edges - respawning doesn't reset your count!
 
 ## Technical Details
 
+### Files Structure
+- **`game.html`** - Clean HTML structure with styling and canvas container
+- **`game.js`** - Complete game logic, all 18 hole configurations, and game systems
+- Separated for better code organization and maintainability
+
+### Technology Stack
 - Built with [Kaboom.js](https://kaboomjs.com/) v3000.0.1
-- Single HTML file with embedded JavaScript
 - 800x600 game canvas
 - No external dependencies beyond the Kaboom.js CDN
 - Simple geometric shapes (no sprites required)
-- **18 unique hole configurations** stored in a holes array
-- Dynamic level loading system
-- Persistent scorecard tracking across holes
-- Real-time UI updates
+- Pure JavaScript ES6+ features
 
-### Game Architecture
+### Game Systems
+- **18 unique hole configurations** stored in a holes array
+- **Dynamic level loading system** - `loadHole()` function clears and rebuilds each hole
+- **Persistent scorecard tracking** across all 18 holes
+- **Real-time UI updates** with visual hierarchy
 - **State management**: Tracks current hole, hole strokes, total strokes, and scorecard
-- **Dynamic level loading**: `loadHole()` function clears and rebuilds each hole
-- **Collision detection**: Separate handlers for goals, bunkers, and platforms
-- **UI persistence**: Fixed HUD elements remain across hole transitions
+- **Collision detection**: Separate handlers for goals, bunkers, water, and platforms
+- **Event handler management**: Properly cancels and recreates handlers to prevent conflicts
+- **UI persistence**: Fixed HUD elements remain visible across hole transitions
 
 ## Customization
 
-You can easily modify the game by editing the `game.html` file:
+You can easily modify the game by editing the `game.js` file:
 
 ### Hole Configuration
-Each hole in the `holes` array contains:
+Each hole in the `holes` array (lines 15-140) contains:
 - **par**: Target strokes for the hole (3, 4, or 5)
 - **platforms**: Array of floating platform objects `{x, y, length}`
 - **green**: Position of the putting green and hole `{x, y}`
@@ -147,7 +173,17 @@ Each hole in the `holes` array contains:
 - Change tree placements for visual variety
 
 ### Visual Customization
-- **Colors**: Update `color()` values for any element
+
+**Game Elements** (in `game.js`):
+- **Colors**: Update `color()` values for any element (ball, platforms, hazards, etc.)
 - **Sizes**: Modify platform lengths, bunker radii, green size
-- **UI**: Adjust text sizes and positions in the HUD elements
+- **UI**: Adjust text sizes and positions in the HUD elements (lines 330-380)
+  - Hole number display (top-left, primary)
+  - Hole stats display (top-left, secondary)
+  - Total strokes with differential (top-left, tertiary)
+  - Instructions (bottom-right)
+
+**Page Styling** (in `game.html`):
+- Modify the `<style>` section for page background, container border, and shadows
+- Adjust canvas container dimensions if needed
 
