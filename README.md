@@ -5,7 +5,7 @@ A complete 18-hole golf course platformer that combines classic platforming mech
 
 ## How to Run
 
-Simply open `game.html` in any modern web browser. No server or build process required.
+Download all files in the repo. Then, simply open `game.html` in any modern web browser. No server or build process required.
 
 ## Objective
 
