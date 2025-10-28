@@ -1,4 +1,5 @@
-# 18-Hole Golf Platformer Game
+# The Wang Golf Championship
+## The Coolest 18-Hole Golf Platformer Game
 
 A complete 18-hole golf course platformer that combines classic platforming mechanics with authentic golf scoring. Navigate a golf ball through varied terrain from tee to green, tracking your performance across a full round of 72 par!
 
