@@ -9,7 +9,7 @@ Download all files in the repo. Then, simply open `game.html` in any modern web 
 
 ## Objective
 
-Complete all 18 holes with the lowest total score! Each hole presents unique challenges with varying distances and obstacles. Your goal is to reach par (72 strokes) or better across the entire course.
+Complete all 18 holes with the lowest total score! Each hole presents unique challenges with varying distances and obstacles. Your goal is to reach par (72 strokes) or better across the entire course. All holes have the chance of Par and some have the chance of Birdie.
 
 ## Controls
 
