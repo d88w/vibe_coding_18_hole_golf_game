@@ -48,7 +48,7 @@ Your score for each hole depends on how many jumps (strokes) you take relative t
 
 **Sand Bunkers** (beige circles) are strategically placed around putting greens. Touching a bunker adds **+1 penalty stroke** automatically and displays a warning message.
 
-**Water Hazards** (blue rectangles) appear on select holes throughout the course (Holes 2, 3, 11, 13, 14). Water hazards enforce the **stroke and distance** penalty:
+**Water Hazards** (blue rectangles) appear on select holes throughout the course (Holes 2, 3, 8, 11, 13, 16). Water hazards enforce the **stroke and distance** penalty:
 - **+1 penalty stroke** is added
 - Ball returns to the **last platform** you landed on
 - More punishing than bunkers - plan your route carefully!
@@ -115,12 +115,12 @@ After completing all 18 holes, you'll see:
 - **Minimize jumps**: Each stroke counts - find the most efficient path
 - **Avoid bunkers**: Sand hazards add penalty strokes and can ruin a good round
 - **AVOID WATER**: Water hazards send you back to your last platform - extremely costly!
-- **Track your platforms**: On water hazard holes (2, 3, 11, 13, 14), know where your safe landing zones are
+- **Track your platforms**: On water hazard holes (2, 3, 8, 11, 13, 16), know where your safe landing zones are
 - **Scout the hole**: Take a moment to identify hazards before your first jump
 - **Free movement**: Move left/right without penalty while airborne
 - **Par 3s are opportunities**: Shorter holes are chances for birdies
 - **Par 5s require patience**: Don't rush the longer holes - consistency beats risk
-- **Mind the middle holes**: Holes 11-14 feature multiple water hazards - extra caution needed!
+- **Mind the middle holes**: Holes 11 and 13 have water hazards clustered together - extra caution needed!
 - **Track your total**: Keep an eye on your cumulative score vs par throughout the round
 - **Falls cost strokes**: Be careful near edges - respawning doesn't reset your count!
 
