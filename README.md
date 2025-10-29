@@ -3,7 +3,7 @@
 
 A complete 18-hole golf course platformer that combines classic platforming mechanics with authentic golf scoring. Navigate a golf ball through varied terrain from tee to green, tracking your performance across a full round of 72 par!
 
-## How to Run
+## How to Play the Game
 
 Download all files in the repo. Then, simply open `game.html` in any modern web browser. No server or build process required.
 
